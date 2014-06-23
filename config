@@ -9,10 +9,6 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# network manager
-# (I have no idea why --no-startup-id might be a clever choice, it is used on various websites)
-exec nm-applet
-
 #Namen fuer Workspaces
 set $1 1: Focus
 set $2 2
@@ -59,12 +55,6 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # bindsym $mod+d exec dmenu_run
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+odiaeresis focus right
-
 # dont let the mous change your focus. Concentrate!
 focus_follows_mouse no
 
@@ -73,12 +63,6 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+odiaeresis move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -192,3 +176,6 @@ client.urgent           #333333 #900000 #ffffff
 bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth
 
+# network manager
+# (I have no idea why --no-startup-id might be a clever choice, it is used on various websites)
+exec nm-applet
