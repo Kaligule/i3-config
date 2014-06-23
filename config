@@ -9,7 +9,9 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-
+# network manager
+# (I have no idea why --no-startup-id might be a clever choice, it is used on various websites)
+exec nm-applet
 
 #Namen fuer Workspaces
 set $1 1: Focus
@@ -161,7 +163,7 @@ mode "resize" {
         bindsym Right resize grow width 5 px or 5 ppt
 	
 	# Test: resize with + and -
-	# bindsym minus exec $terminal
+	bindsym minus exec $terminal
 	# bindsym plus exec $terminal
 	bindsym minus resize shrink split 5 px or 5 ppt
 
@@ -189,3 +191,4 @@ client.urgent           #333333 #900000 #ffffff
 # switch between the current and the previously focused one
 bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth
+
