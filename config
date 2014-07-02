@@ -46,6 +46,9 @@ bindsym $mod+Return exec $terminal
 # start the browser
 bindsym $mod+i exec $browser
 
+# lock screen
+bindsym $mod+l exec xlock -mode matrix
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
