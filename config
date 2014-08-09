@@ -176,7 +176,7 @@ client.urgent           #333333 #900000 #ffffff
 bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth
 
-# network manager
+# network manager (always runs)
 # (I have no idea why --no-startup-id might be a clever choice, it is used on various websites)
 exec nm-applet
 
@@ -185,3 +185,8 @@ exec nm-applet
 bindsym XF86AudioRaiseVolume	exec amixer -q set Master 5%+ unmute
 bindsym XF86AudioLowerVolume	exec amixer -q set Master 5%- unmute
 bindsym XF86AudioMute			exec amixer -q set Master toggle
+
+# Screen brightness
+# found here: https://faq.i3wm.org/question/3747/enabling-multimedia-keys/
+bindsym XF86MonBrightnessUp		exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown	exec xbacklight -dec 20
