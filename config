@@ -50,7 +50,7 @@ bindsym $mod+i exec $browser
 bindsym $mod+o exec $EDITOR -n
 
 # lock screen
-bindsym $mod+l exec xlock -mode matrix
+bindsym $mod+l exec xlock -mode space
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -179,3 +179,9 @@ bindsym $mod+Shift+b move container to workspace back_and_forth
 # network manager
 # (I have no idea why --no-startup-id might be a clever choice, it is used on various websites)
 exec nm-applet
+
+# sound
+# found here: https://faq.i3wm.org/question/125/how-to-change-the-systems-volume/?answer=846#post-id-846
+bindsym XF86AudioRaiseVolume	exec amixer -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume	exec amixer -q set Master 5%- unmute
+bindsym XF86AudioMute			exec amixer -q set Master toggle
