@@ -49,6 +49,10 @@ bindsym $mod+i exec $browser
 # start Editor in new window ($EDITOR is set in bashrc)
 bindsym $mod+o exec $EDITOR -n
 
+# start password manager
+bindsym $mod+p exec keepassx
+for_window [class="Keepassx"] floating enable
+
 # lock screen
 bindsym $mod+l exec xlock -mode space
 
