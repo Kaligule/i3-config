@@ -17,8 +17,8 @@ set $4 4
 set $5 5
 set $6 6
 set $7 7
-set $8 8
-set $9 9
+set $8 8: Chat
+set $9 9: Mail
 set $10 10: Junk
 
 # Window Manager Key
@@ -186,6 +186,15 @@ bindsym $mod+Shift+b move container to workspace back_and_forth
 # network manager (always runs)
 # (I have no idea why --no-startup-id might be a clever choice, it is used on various websites)
 exec nm-applet
+
+# Start Thunderbird and Pidgin with 10 minutes delay
+exec --no-startup-id "sh -c 'sleep 10m; exec thunderbird'"
+exec --no-startup-id "sh -c 'sleep 10m; exec pidgin'"
+
+# Assign certain windows to certain workspaces 
+assign [class="Pidgin"]     	   → 8
+assign [class="Buddy List"] 	   → 8
+assign [class="Thunderbird$"] 	   → 9
 
 # sound
 # found here: https://faq.i3wm.org/question/125/how-to-change-the-systems-volume/?answer=846#post-id-846
