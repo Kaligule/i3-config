@@ -41,7 +41,9 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # toggle tiling / floating
-bindsym $mod+Shift+f floating toggle
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
 
 # start a terminal
 bindsym $mod+Return exec $terminal
