@@ -1,3 +1,4 @@
+
 # This file was writen by Johannes Lippmann
 # It will not be overwritten, so edit it as you like.
 #
@@ -68,7 +69,7 @@ bindsym $mod+Shift+q kill
 # only displays applications shipping a .desktop file.
 # It is a wrapper around dmenu
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-# bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec dmenu_run 
 
 # dont let the mous change your focus. Concentrate!
 focus_follows_mouse no
@@ -185,18 +186,20 @@ client.urgent           #333333 #900000 #ffffff
 bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth
 
+# set backgroundmanager to work
+exec --no-startup-id nitrogen --restore
+
 # network manager (always runs)
-# (I have no idea why --no-startup-id might be a clever choice, it is used on various websites)
-exec nm-applet
+exec --no-startup-id nm-applet 
 
 # Start Thunderbird and Pidgin with 10 minutes delay
 exec --no-startup-id "sh -c 'sleep 10m; exec thunderbird'"
 exec --no-startup-id "sh -c 'sleep 10m; exec pidgin'"
 
 # Assign certain windows to certain workspaces 
-assign [class="Pidgin"]     	   → 8
-assign [class="Buddy List"] 	   → 8
-assign [class="Thunderbird$"] 	   → 9
+assign [class="Pidgin"]     	   → $8
+assign [class="Buddy List"] 	   → $8
+assign [class="Thunderbird$"] 	   → $9
 
 # sound
 # found here: https://faq.i3wm.org/question/125/how-to-change-the-systems-volume/?answer=846#post-id-846
@@ -208,3 +211,9 @@ bindsym XF86AudioMute			exec amixer -q set Master toggle
 # found here: https://faq.i3wm.org/question/3747/enabling-multimedia-keys/
 bindsym XF86MonBrightnessUp		exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown	exec xbacklight -dec 20
+
+# Make screenshot and move it to Downloads
+#bindsym XF86Display exec "scrot ~/Downloads/Screenshot_%Y-%m-%d_%H:%M:%S.png"
+#bindsym Shift+XF86Display exec "scrot -s --release ~/Downloads/Screenshot_%Y-%m-%d_%H:%M:%S.png"
+bindsym XF86Display exec "import -window `xwininfo | awk '/.*Window id:.*/ {print $4}'` ~/Downloads/Screenshot_$(date +%F_%H:%M:%S).png"
+#bindsym XF86Display exec "import -window root ~/Downloads/Screenshot_$(date +%F_%H:%M:%S).png"
